@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
@@ -10,8 +10,15 @@
 	
 	<h2>Tasks</h2>
 	
-	<ul>
-		<li>Criar BD</li>
+	<a href="/task/new">Nova Tarefa</a>
+
+	<ul th:each="task: ${tasks}">
+		<li>
+			<p th:text="${task.title}"></p>
+			<p th:text="${task.description}"></p>
+			<p th:text="${task.points}"></p>
+			<button>pegar</button>
+		</li>
 	</ul>
 
 </body>
