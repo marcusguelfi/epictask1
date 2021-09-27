@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-</head>
+<head th:include="_template :: head"></head>
 <body>
 
 	<h1>Epic Task</h1>
 	
+	<span class="alert" th:if="${message != null}" th:text="${message}"></span>
+	
 	<h2>Tasks</h2>
 	
-	<a href="/task/new">Nova Tarefa</a>
+	<a class="button" href="/task/new">Nova Tarefa</a>
 
 	<ul th:each="task: ${tasks}">
 		<li>

@@ -1,0 +1,57 @@
+.form-vertical{
+	display: flex;
+	flex-direction: column;
+}
+
+.form-vertical label{
+	margin-top: 1rem;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.form-vertical input[type=text],
+.form-vertical textarea{
+	background: rgba(255, 255, 255, 0.8);
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-family: Quicksand;
+	font-size: 1.5rem;
+	color: #404040;
+	padding: .3rem 1rem;
+	outline: none;
+}
+
+.form-vertical input[type=range]{
+	outline: none;
+}
+
+.form-vertical textarea{
+	resize: vertical;
+}
+
+.form-vertical input[type=text]:focus,
+.form-vertical textarea:focus{
+	border: 3px solid #3F5EFB;
+}
+
+.form-vertical .action-buttons{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3rem;
+}
+
+.form-vertical span{
+	color: #900;
+	font-weight: bold;
+}
+
+.invalid{
+	border: 3px solid #900;
+}
+
+
+
+
+
+
+

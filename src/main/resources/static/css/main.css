@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@400;700&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+body{
+	height: 100vh;
+	background: linear-gradient(115.86deg, #FC466B -0.4%, #3F5EFB 100.44%);
+	color: #FFFFFF;
+	font-family: Quicksand;
+}
+
+h1{
+	font-family: Bebas Neue;
+	font-size: 4.5rem;
+	text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+h2{
+	font-family: Bebas Neue;
+	font-size: 4rem;
+	text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card{
+	margin: 2rem;
+	padding: 2rem 5rem;
+	background: linear-gradient(147.57deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.06) 100%);
+	backdrop-filter: blur(61px);
+	border-radius: 10px;
+}
+
+button,
+.button{
+	background: #3F5EFB;
+	border-radius: 5px;
+	font-family: Quicksand;
+	font-weight: 500;
+	font-size: 1.5rem;
+	text-align: center;
+	color: #FFFFFF;
+	filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+	padding: .5rem 2rem;
+	cursor: pointer;
+}
+
+button.default,
+.button.default{
+	background: #FFFFFF;
+	color: #3F5EFB;
+}
+
+.alert{
+	background: #00ff66;
+	color: #000;
+	padding: 1rem;
+}
+
+
+
+
+
+
+
+
+
+

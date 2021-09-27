@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-</head>
 <body>
 
 	<h1>Epic Task</h1>
 	
-	<h2>Nova Tarefa</h2>
+	<div class="card">
 	
-	<form action="/task" method="post" th:object="${task}">
-		<label for="title">Título</label>
-		<input type="text" name="title" id="title" th:field="*{title}">
-		<span th:errors="*{title}"></span>
+		<h2 th:text="#{title.newtask}"></h2>
 		
-		<label for="description">Descrição</label>
-		<textarea id="description" name="description" rows="" cols="" th:field="*{description}"></textarea>
-		<span th:errors="*{description}"></span>
-		
-		<label for="points">Pontos</label>
-		<input 
-			type="range" 
-			id="points" 
-			name="points" 
-			th:field="*{points}"
-			min="10"
-			max="500"
-		>
-		<span th:errors="*{points}"></span>
-		
-		
-		<a href="/task">cancelar</a>
-		<button>Salvar</button>
-	</form>
+		<form class="form-vertical" action="/task" method="post" th:object="${task}">
+			<label for="title" th:text="#{task.title}"></label>
+			<input 
+				th:classappend="${#fields.hasErrors('title')}?invalid"
+				type="text" 
+				name="title" 
+				id="title" 
+				th:field="*{title}" 
+				autocomplete="off"
+				>
+			<span th:errors="*{title}"></span>
+			
+			<label for="description" th:text="#{task.description}"></label>
+			<textarea 
+				th:classappend="${#fields.hasErrors('description')}?invalid"
+				id="description" 
+				name="description" 
+				rows="" 
+				cols="" 
+				th:field="*{description}">
+			</textarea>
+			<span th:errors="*{description}"></span>
+			
+			<label for="points" th:text="#{task.points}"></label>
+			<input 
+				type="range" 
+				id="points" 
+				name="points" 
+				th:field="*{points}"
+				min="10"
+				max="500"
+				step="10"
+				oninput="out.value=this.value"
+			>
+			<output id="out">10</output>
+			<span th:errors="*{points}"></span>
+			
+			<div class="action-buttons">
+				<a class="button default" href="/task" th:text="#{button.cancel}"></a>
+				<button th:text="#{button.save}"></button>
+			</div>
+		</form>
+	</div>
+	
 
 </body>
 </html>
