@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
+
 <head th:include="_template :: head"></head>
+
 <body>
 
-	<h1>Epic Task</h1>
+	<h1>EPIC TASK</h1>
 	
-	<span class="alert" th:if="${message != null}" th:text="${message}"></span>
+	<div class="alert" th:if="${message != null}" th:text="${message}"></div>
 	
-	<h2>Tasks</h2>
-	
-	<a class="button" href="/task/new">Nova Tarefa</a>
+	<div class="card">
+		<nav th:include="_template :: menu('task')"></nav>
+		<a href="/task/new" class="button primary action">
+			<span class="material-icons">
+				add_circle_outline
+			</span>
+			<span th:text="#{label.newtask}"></span>
+		</a>
+		
+		<div class="tasks">
+			<div class="card task" th:each="task : ${tasks}">
+				<div>
+					<h3 th:text="${task.title}"></h3>
+					<span th:text="${task.points}+'pts'"></span>
+				</div>
+				<p th:text="${task.description}"></p>
+				<meter min="0" low="30" high="80" max="100" value="84"></meter>
+				<div class="task-actions">
+					<img class="avatar" alt="ower" src="https://avatars.githubusercontent.com/u/5585727?v=4">
+					<button class="icon primary" th:title="#{task.catch}">
+						<span class="material-icons">
+							back_hand
+						</span>
+					</button>
+				</div>
+			</div>
+		
+		</div>
 
-	<ul th:each="task: ${tasks}">
-		<li>
-			<p th:text="${task.title}"></p>
-			<p th:text="${task.description}"></p>
-			<p th:text="${task.points}"></p>
-			<button>pegar</button>
-		</li>
-	</ul>
+	</div>
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

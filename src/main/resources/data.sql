@@ -1,10 +1,32 @@
 CREATE TABLE task (
-	id int PRIMARY KEY auto_increment, 
+	id bigint PRIMARY KEY auto_increment,
 	title varchar(200),
 	description TEXT,
 	points int
-);	
+);
 
-INSERT INTO task VALUES(1, 'Criar banco de dados', 'Criar o banco de dados na nuvem', 50);
-INSERT INTO task VALUES(2, 'Protótipo', 'Prototipação de alta fidelidade', 30);
-INSERT INTO task VALUES(3, 'API REST dos dados', 'Criar a API para endpoints da aplicação', 150);
+CREATE TABLE user (
+	id bigint PRIMARY KEY auto_increment,
+	name varchar(200),
+	email varchar(200),
+	password varchar(200)
+	
+);
+
+INSERT INTO user (name, email, password) VALUES
+('Joao Carlos', 'joao@gmail.com', '123'),
+('Carla Lopes', 'carla@gmail.com', '123'),
+('Fabio Cabrini', 'fabio@fiap.com.br', '123');
+
+
+INSERT INTO task (title, description, points) VALUES 
+	('Criar banco de dados',
+	'Criar um banco de dados na nuvem com Oracle', 
+	200);
+	
+	
+INSERT INTO task (title, description, points) VALUES 
+	('Protótipo','Criação de protótipo de alta fidelidade', 100);
+	
+INSERT INTO task (title, description, points) VALUES 
+	('API REST','Publicação de API com endpoints da aplicação', 150);

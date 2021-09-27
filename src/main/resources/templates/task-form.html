@@ -1,59 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head th:include="_template :: head"></head>
-
 <body>
 
 	<h1>Epic Task</h1>
 	
-	<div class="card">
-	
-		<h2 th:text="#{title.newtask}"></h2>
+	<section class="card form">
+		<h2>Cadastrar Tarefa</h2>
 		
-		<form class="form-vertical" action="/task" method="post" th:object="${task}">
-			<label for="title" th:text="#{task.title}"></label>
+		<form action="/task" method="post" th:object="${task}">
+			<label for="title">Título</label>
 			<input 
-				th:classappend="${#fields.hasErrors('title')}?invalid"
 				type="text" 
 				name="title" 
 				id="title" 
-				th:field="*{title}" 
-				autocomplete="off"
-				>
-			<span th:errors="*{title}"></span>
+				th:field="*{title}"
+				th:classappend="${#fields.hasErrors('title')}?invalid"			 
+			/>
+			<span class="error" th:errors="*{title}"></span>
 			
-			<label for="description" th:text="#{task.description}"></label>
-			<textarea 
-				th:classappend="${#fields.hasErrors('description')}?invalid"
-				id="description" 
-				name="description" 
-				rows="" 
-				cols="" 
-				th:field="*{description}">
-			</textarea>
-			<span th:errors="*{description}"></span>
+			<label for="description">Descrição</label>
+			<textarea name="description" id="description" th:field="*{description}" th:classappend="${#fields.hasErrors('description')}?invalid"			 
+			></textarea>
+			<span class="error"  th:errors="*{description}"></span>
 			
-			<label for="points" th:text="#{task.points}"></label>
-			<input 
-				type="range" 
-				id="points" 
-				name="points" 
-				th:field="*{points}"
-				min="10"
-				max="500"
-				step="10"
-				oninput="out.value=this.value"
-			>
-			<output id="out">10</output>
-			<span th:errors="*{points}"></span>
+			<label for="points">Pontos</label>
+			<input type="range" name="points" id="points" min=10 max=500 value=250 th:field="*{points}" oninput="document.querySelector('#output-points').value=this.value">
+			<output id="output-points">10</output>
+			<span class="error"  th:errors="*{points}"></span>
 			
-			<div class="action-buttons">
-				<a class="button default" href="/task" th:text="#{button.cancel}"></a>
-				<button th:text="#{button.save}"></button>
+			<div class="buttons">
+				<a href="/task" class="button">Cancelar</a>
+				<button class="button primary">Salvar</button>
 			</div>
+			
 		</form>
-	</div>
-	
+	</section>
 
 </body>
 </html>
