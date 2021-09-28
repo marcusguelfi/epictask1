@@ -25,7 +25,7 @@
 					<span th:text="${task.points}+'pts'"></span>
 				</div>
 				<p th:text="${task.description}"></p>
-				<meter min="0" low="30" high="80" max="100" value="84"></meter>
+				<meter min="0" max="100" th:value="${task.status}"></meter>
 				<div class="task-actions">
 					<img class="avatar" alt="ower" src="https://avatars.githubusercontent.com/u/5585727?v=4">
 					<button class="icon primary" th:title="#{task.catch}">

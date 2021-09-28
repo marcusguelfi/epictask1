@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+
+<body>
+
+	<h1>EPIC TASK</h1>
+
+	<div class="alert" th:if="${message != null}" th:text="${message}"></div>
+
+	<div class="card">
+		<p>Uma aplicação de controle de tarefas gamificado para Devs</p>
+		
+		<a class="button primary" href="/login">Acesse agora mesmo</a>
+		
+		<a class="button" href="/user/new">Crie uma conta</a>
+		
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

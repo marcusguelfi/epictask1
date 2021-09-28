@@ -19,6 +19,8 @@
 		
 		<main class="content">
 			<div class="user" th:each="user : ${users}">
+				<img class="avatar" alt="" 
+					th:src="${user.avatarUrl}">
 				<div class="user-info">
 					<h4 th:text="${user.name}"></h4>
 					<p th:text="${user.email}"></p>

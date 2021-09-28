@@ -8,7 +8,7 @@
 	<section class="card form">
 		<h2>Cadastrar Tarefa</h2>
 		
-		<form action="/task" method="post" th:object="${task}">
+		<form th:action="@{/task}" method="post" th:object="${task}">
 			<label for="title">Título</label>
 			<input 
 				type="text" 

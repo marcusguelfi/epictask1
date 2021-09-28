@@ -21,6 +21,7 @@
 .user-info{
 	flex-grow:1;
 	padding: 1rem 0;
+	margin-left: 1rem;
 }
 
 .user-info h4{
