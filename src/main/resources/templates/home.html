@@ -7,18 +7,33 @@
 
 	<h1>EPIC TASK</h1>
 
-	<div class="alert" th:if="${message != null}" th:text="${message}"></div>
+	 <main class="home">
+        <div class="left">
+            <h2>Engajamento para sua equipe de desenvolvimento</h2>
+            <p>Fa√ßa o controle das atividades realizadas pela sua equipe de trabalho atrav√©s de um app gamificado para equipes autogerenci√°veis. </p>
 
-	<div class="card">
-		<p>Uma aplicaÁ„o de controle de tarefas gamificado para Devs</p>
-		
-		<a class="button primary" href="/login">Acesse agora mesmo</a>
-		
-		<a class="button" href="/user/new">Crie uma conta</a>
-		
+            <div class="buttons">
+
+                <a href="/login" class="button primary">
+                    <span class="material-icons"> login </span>
+                    <span th:text="#{label.login}"></span>
+                </a>
+
+                <a href="/user/new" class="button">
+                    <span class="material-icons"> person </span>
+                    <span th:text="#{label.register}"></span>
+                </a>
+            </div>
+        </div>
+
+        <aside class="right">
+            <img alt="" th:src="@{~/images/saly.svg}">
+        </aside>
 
 
-	</div>
+
+    </main>
+
 
 
 
