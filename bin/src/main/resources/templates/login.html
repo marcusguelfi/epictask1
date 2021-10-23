@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+<body>
+
+	<h1>Epic Task</h1>
+	
+	<div th:if="${param.error}" class="alert error">Login inválido</div>
+	
+	<section class="card form">
+		
+		<h2>Login</h2>
+		
+		<form th:action="@{/login}" method="post">
+			<label for="email">E-mail</label>
+			<input type="text" name="username" id="email">
+	
+			<label for="pass">Senha</label>
+			<input type="password" name="password" id="pass">
+			
+			<div class="buttons">
+				<button class="primary">Entrar</button>
+			</div>
+		</form>
+		
+	</section>
+
+</body>
+</html>

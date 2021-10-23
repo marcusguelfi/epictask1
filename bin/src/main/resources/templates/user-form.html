@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+
+<body>
+
+	<header th:include="_template :: header"></header>
+
+	
+	<section class="card form">
+		<h2>Cadastrar Usu√°rio</h2>
+		
+		<form th:action="@{/user}" method="post" th:object="${user}">
+			<label for="name">Nome</label>
+			<input 
+				type="text" 
+				name="name" 
+				id="name" 
+				th:field="*{name}"
+				th:classappend="${#fields.hasErrors('name')}?invalid"			 
+			/>
+			<span class="error" th:errors="*{name}"></span>
+			
+			<label for="githubuser">Usu·rio do GitHub</label>
+			<input 
+				type="text" 
+				name="githubuser" 
+				id="githubuser" 
+				th:field="*{githubuser}"
+				th:classappend="${#fields.hasErrors('githubuser')}?invalid"			 
+			/>
+			<span class="error" th:errors="*{githubuser}"></span>
+
+
+			<label for="email">E-mail</label>
+			<input 
+				type="email" 
+				name="email" 
+				id="email" 
+				th:field="*{email}"
+				th:classappend="${#fields.hasErrors('email')}?invalid"			 
+			/>
+			<span class="error"  th:errors="*{email}"></span>
+
+			<label for="password">Senha</label>
+			<input 
+				type="password" 
+				name="password" 
+				id="password" 
+				th:field="*{password}"
+				th:classappend="${#fields.hasErrors('password')}?invalid"			 
+			/>
+			<span class="error"  th:errors="*{password}"></span>
+			
+			<div class="buttons">
+				<a href="/user" class="button">Cancelar</a>
+				<button class="button primary">Salvar</button>
+			</div>
+			
+		</form>
+	</section>
+
+</body>
+</html>

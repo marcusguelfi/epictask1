@@ -1,0 +1,66 @@
+.form{
+	margin: 0 auto;
+	display:flex;
+	flex-direction: column;
+	max-width: 500px;
+	padding: 2rem 5rem;
+}
+
+.form h2{
+	font-family: Bebas Neue;
+	font-size: 3rem;
+	text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+.form label{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.form input[type=text],
+.form input[type=email],
+.form input[type=password],
+.form textarea
+{
+	background: rgba(255, 255, 255, 0.8);
+	border: none;
+	outline: none;
+	box-sizing: border-box;
+	border-radius: 5px;
+	font-family: Quicksand;
+	font-size: 1.5rem;
+	color: var(--input-color);
+	padding-left: 1rem; 
+}
+
+.form textarea{
+	resize: vertical;
+}
+
+.form label{
+	margin-top: 1rem;
+}
+
+
+.form input[type=text]:focus,
+.form input[type=email]:focus,
+.form input[type=password]:focus,
+.form textarea:focus
+{
+	border: 3px solid #3F5EFB;
+}
+
+.form .buttons{
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.invalid{
+	border: 3px solid #7A0031 !important;
+}
+
+.error{
+	color: #7A0031;
+}

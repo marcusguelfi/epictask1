@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+
+<body>
+
+	<h1>EPIC TASK</h1>
+
+	 <main class="home">
+        <div class="left">
+            <h2>Engajamento para sua equipe de desenvolvimento</h2>
+            <p>Faça o controle das atividades realizadas pela sua equipe de trabalho através de um app gamificado para equipes autogerenciáveis. </p>
+
+            <div class="buttons">
+
+                <a href="/login" class="button primary">
+                    <span class="material-icons"> login </span>
+                    <span th:text="#{label.login}"></span>
+                </a>
+
+                <a href="/user/new" class="button">
+                    <span class="material-icons"> person </span>
+                    <span th:text="#{label.register}"></span>
+                </a>
+            </div>
+        </div>
+
+        <aside class="right">
+            <img alt="" th:src="@{~/images/saly.svg}">
+        </aside>
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

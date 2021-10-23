@@ -16,6 +16,7 @@ import javax.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import br.com.fiap.epictask.service.AuthenticationService;
 import lombok.Data;
 
 @Data
@@ -93,7 +94,59 @@ public class User implements UserDetails {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
-	
 
+	@Override
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public void setPassword(String password){
+		this.password = password;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getGithubuser() {
+		return githubuser;
+	}
+
+	public void setGithubuser(String githubuser) {
+		this.githubuser = githubuser;
+	}
+
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 }

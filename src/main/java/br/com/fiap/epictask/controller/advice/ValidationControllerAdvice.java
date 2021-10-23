@@ -12,22 +12,18 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ValidationControllerAdvice {
-	
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	public List<ValidationFieldError> handler(MethodArgumentNotValidException err) {
 		List<ValidationFieldError> list = new ArrayList<>();
-		
+
 		List<FieldError> errors = err.getBindingResult().getFieldErrors();
-		
+
 		errors.forEach(erro -> {
-			list.add(
-					new ValidationFieldError(
-							erro.getField(), 
-							erro.getDefaultMessage()
-						));
+			list.add(new ValidationFieldError(erro.getField(), erro.getDefaultMessage()));
 		});
-		
+
 		return list;
 	}
 
