@@ -9,10 +9,10 @@
 
 	
 	<section class="card form">
-		<h2>Cadastrar Usuário</h2>
+		<h2>Editar Usuário</h2>
 		
-		<form th:action="@{/user}" method="post" th:object="${user}">
-			<input type="hidden" name="id" id="id">
+		<form th:action="@{/user/edit}" method="post" th:object="${user}">
+			<input type="hidden" name="id" id="id" th:field="*{id}">
 			<label for="name">Nome</label>
 			<input 
 				type="text" 

@@ -16,7 +16,6 @@ import javax.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.fiap.epictask.service.AuthenticationService;
 import lombok.Data;
 
 @Data
@@ -31,6 +30,7 @@ public class User implements UserDetails {
 	@NotBlank(message = "{user.name.blank}")
 	private String name;
 	
+
 	@NotBlank(message = "{user.email.blank}")
 	@Email(message = "{user.email.invalid}")
 	private String email;
@@ -40,10 +40,12 @@ public class User implements UserDetails {
 	
 	@NotBlank(message = "{user.github.blank}")
 	private String githubuser;
-
+	
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Collection<Role> roles;
 	
+	
+
 	public String getAvatarUrl() {
 		return "https://avatars.githubusercontent.com/" + this.githubuser;
 	}
@@ -106,6 +108,10 @@ public class User implements UserDetails {
 
 	public Long getId() {
 		return id;
+	}
+	
+	public void setUsername(String email) {
+		this.email = email;
 	}
 
 	public void setId(Long id) {

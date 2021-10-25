@@ -24,7 +24,7 @@ public class AuthenticationController {
 	
 	@Autowired
 	private TokenService tokenService;
-
+	
 	@PostMapping("/api/auth")
 	public ResponseEntity<String> auth(@RequestBody @Valid Login login) {
 		

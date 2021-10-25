@@ -26,8 +26,20 @@ public class TaskService {
 	@Autowired
 	private MessageSource message;
 	
+	public boolean hasTasksToUser(long id) {
+		return repository.countByUserId(id) > 0;
+	}
+	
+	public Page<Task> getAllConcluedTasks(Pageable pageable) {
+		return repository.findAllTasksConclued(pageable);
+	}
+	
+	public Integer getPointsByUser(User user) {
+		return repository.findPointsOfConludedTasksByUserId(user.getId());
+	}
+	
 	public Page<Task> listTasks(Pageable pageable) {
-		return repository.findAll(pageable);
+		return repository.findAllTasksNotConclued(pageable);
 	}
 
 	public void save(Task task, RedirectAttributes redirect) {

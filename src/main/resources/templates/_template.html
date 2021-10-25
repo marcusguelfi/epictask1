@@ -56,6 +56,14 @@
 				<span th:text="#{menu.ranking}"></span>
 			</a>
 		</li>
+		<li>
+			<a href="task/conclued" th:classappend="${page=='tasks-conclued'}?active">
+				<span class="material-icons">
+					list
+				</span>
+				<span th:text="#{menu.conclued}"></span>
+			</a>
+		</li>
 	</ul>
 </nav>
 

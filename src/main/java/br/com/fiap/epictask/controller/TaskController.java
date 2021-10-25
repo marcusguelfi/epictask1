@@ -1,11 +1,8 @@
 package br.com.fiap.epictask.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -27,18 +24,32 @@ import br.com.fiap.epictask.service.TaskService;
 @RequestMapping("/task")
 public class TaskController {
 	
-	@Value("${default.page.size}")
-	private static int DefaultPageSize;
-	
 	@Autowired
 	public TaskService service;
 
 	@GetMapping
-	public ModelAndView index(@RequestParam int p, @RequestParam int r, @RequestParam List<Sort.Order> o) {
-		if(r == 0) r = DefaultPageSize;
-		Pageable pageable = PageRequest.of(p, r, Sort.by(o));
+	public ModelAndView index(
+			@RequestParam(defaultValue = "0") int p, 
+			@RequestParam(defaultValue = "${default.page.size}") int r, 
+			@RequestParam(defaultValue = "${default.sort.order}", required = false) Sort.Direction o,
+			@RequestParam(defaultValue = "${default.sort.collum}", required = false ) String s ) {
+		
+		Pageable pageable = PageRequest.of(p, r, Sort.by(o,s));
 		ModelAndView modelAndView = new ModelAndView("tasks");
 		modelAndView.addObject("tasks", service.listTasks(pageable));
+		return modelAndView;
+	}
+	
+	@GetMapping("conclued")
+	public ModelAndView indexConclued(
+			@RequestParam(defaultValue = "0") int p, 
+			@RequestParam(defaultValue = "${default.page.size}") int r, 
+			@RequestParam(defaultValue = "${default.sort.order}", required = false) Sort.Direction o,
+			@RequestParam(defaultValue = "${default.sort.collum}", required = false ) String s ) {
+		
+		Pageable pageable = PageRequest.of(p, r, Sort.by(o,s));
+		ModelAndView modelAndView = new ModelAndView("tasks-conclued");
+		modelAndView.addObject("tasks", service.getAllConcluedTasks(pageable));
 		return modelAndView;
 	}
 

@@ -16,7 +16,10 @@ import br.com.fiap.epictask.repository.UserRepository;
 
 @Service
 public class UserSevice {
-
+	
+	@Autowired
+	private TaskService taskService;
+	
 	@Autowired
 	private UserRepository repository;
 
@@ -44,7 +47,7 @@ public class UserSevice {
 	}
 	
 	public void edit (User user, RedirectAttributes redirect) {
-		if(!user.getPassword().isEmpty()) {
+		if(user.getPassword() != null) {
 			user.setPassword(AuthenticationService.getPasswordEncoder().encode(user.getPassword()));
 		}
 		repository.save(user);
@@ -53,9 +56,14 @@ public class UserSevice {
 	}
 
 	public void remove(Long id, RedirectAttributes redirect) {
+		if(taskService.hasTasksToUser(id)) {
+			redirect.addFlashAttribute("message",
+					messages.getMessage("message.fail.removeuser.constraint.task", null, LocaleContextHolder.getLocale()));
+		}else {
 		repository.deleteById(id);
 		redirect.addFlashAttribute("message",
 				messages.getMessage("message.success.removeuser", null, LocaleContextHolder.getLocale()));
+		}
 	}
 
 }

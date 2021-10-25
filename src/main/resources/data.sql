@@ -27,13 +27,14 @@ CREATE TABLE user_roles(
 
 INSERT INTO role (name) VALUES ('ROLE_ADMIN'), ('ROLE_USER');
 
-INSERT INTO user_roles VALUES (1, 1);
+INSERT INTO user_roles VALUES (1, 1),(4, 1);
 
 
 INSERT INTO user (name, email, password, githubuser) VALUES
 ('Joao Carlos', 'joao@gmail.com', '$2a$12$O2BXknIGzw4aqG52PMfVkut/8/pFrfAo1ZpHsNdZy6Tvb3I4vZ2Oe', 'joaocarloslima'),
 ('Carla Lopes', 'carla@gmail.com', '$2a$12$O2BXknIGzw4aqG52PMfVkut/8/pFrfAo1ZpHsNdZy6Tvb3I4vZ2Oe', 'carla'),
-('Fabio Cabrini', 'fabio@fiap.com.br', '$2a$12$O2BXknIGzw4aqG52PMfVkut/8/pFrfAo1ZpHsNdZy6Tvb3I4vZ2Oe', 'jose');
+('Fabio Cabrini', 'fabio@fiap.com.br', '$2a$12$O2BXknIGzw4aqG52PMfVkut/8/pFrfAo1ZpHsNdZy6Tvb3I4vZ2Oe', 'jose'),
+('Administrador FIAP', 'admin@fiap.com.br', '$2a$04$COUw7q7YmerlHZZ8fMMzb.BOEyXlRplbyH5bIOcPrsRR13eugVOAe', 'adminFiap');
 
 
 INSERT INTO task (title, description, points, status, user_id) VALUES 
@@ -48,4 +49,4 @@ INSERT INTO task (title, description, points, status) VALUES
 	('Protótipo','Criação de protótipo de alta fidelidade', 100, 50);
 	
 INSERT INTO task (title, description, points, status, user_id) VALUES 
-	('API REST','Publicação de API com endpoints da aplicação', 150, 95, 2);
+	('API REST','Publicação de API com endpoints da aplicação', 150, 100, 2);
